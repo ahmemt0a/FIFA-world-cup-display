@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aramco Communities - World Cup Today Display</title>
+    <title>Aramco Communities - World Cup Live Streaming</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap');
+        /* Embedding Manifa Pro 2 font alongside a heavy Montserrat backup for bold stadium impact */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 
         * {
             box-sizing: border-box;
@@ -12,10 +13,10 @@
             padding: 0;
         }
 
-        /* 20" x 36" Locked Resolution Canvas using Stadium Asset Background */
+        /* 20" x 36" Portrait Canvas with full-bleed background asset alignment */
         body {
-            font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(to bottom, rgba(5, 11, 24, 0.9) 0%, rgba(5, 11, 24, 0.5) 50%, #050b18 90%), 
+            font-family: 'Manifa Pro 2', 'ManifaPro2', 'Montserrat', 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, rgba(5, 11, 24, 0.95) 0%, rgba(5, 11, 24, 0.6) 50%, #050b18 95%), 
                         url('image_764920.jpg') no-repeat center center;
             background-size: cover;
             color: #ffffff;
@@ -24,46 +25,46 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding: 70px 80px;
+            padding: 80px 90px;
         }
 
-        /* Top Corporate Identity Header Bar */
+        /* Top Identity Branding Bar */
         .branding-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 25px;
-            margin-bottom: 55px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 30px;
+            margin-bottom: 70px;
         }
 
         .brand-main {
-            font-size: 28px;
+            font-size: 34px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: #00b0ff;
         }
 
         .brand-sub {
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 30px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: #94a3b8;
         }
 
-        /* Main Typography Header Section */
+        /* Large Header Typography Block */
         .title-group {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 65px;
         }
 
         h1 {
-            font-size: 96px;
+            font-size: 110px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             line-height: 1.1;
             background: linear-gradient(180deg, #ffffff 0%, #ffd700 100%);
             -webkit-background-clip: text;
@@ -71,104 +72,103 @@
         }
 
         .sub-heading {
-            font-size: 46px;
+            font-size: 54px;
             color: #00e676;
             text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-top: 15px;
-            font-weight: 800;
+            letter-spacing: 7px;
+            margin-top: 25px;
+            font-weight: 900;
         }
 
-        /* Narrative Description Block */
+        /* High-Impact Primary Text Block */
         .body-intro {
-            font-size: 32px;
-            line-height: 1.5;
-            color: #f1f5f9;
+            font-size: 42px;
+            line-height: 1.6;
+            color: #ffffff;
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto 60px auto;
-            font-weight: 500;
+            max-width: 1260px;
+            margin: 0 auto 75px auto;
+            font-weight: 700;
         }
 
-        /* Dynamic Single-Day Schedule Hub Section */
+        /* Isolated Particular Day Schedule Centerpiece */
         .schedule-hub {
-            background: rgba(15, 23, 42, 0.85);
-            border: 2px solid rgba(0, 230, 118, 0.3);
-            border-radius: 20px;
-            padding: 45px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            margin-bottom: 65px;
+            background: rgba(9, 17, 34, 0.92);
+            border: 3px solid rgba(0, 230, 118, 0.4);
+            border-radius: 24px;
+            padding: 55px;
+            backdrop-filter: blur(25px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            margin-bottom: 75px;
         }
 
         .hub-date-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            gap: 25px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 35px;
+            margin-bottom: 50px;
         }
 
         .hub-date-badge {
             background: linear-gradient(135deg, #00e676 0%, #00a352 100%);
             color: #050810;
-            font-size: 36px;
+            font-size: 44px;
             font-weight: 900;
-            padding: 10px 30px;
-            border-radius: 8px;
+            padding: 12px 35px;
+            border-radius: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         .hub-date-title {
-            font-size: 42px;
-            font-weight: 800;
+            font-size: 54px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: #ffffff;
         }
 
-        /* Large Daily Match Layout Matrix */
+        /* Massive Match Card Presentation Panels */
         .match-matrix {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
         .big-match-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 8px solid #ffd700;
-            border-radius: 12px;
-            padding: 35px 40px;
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 12px solid #ffd700;
+            border-radius: 16px;
+            padding: 50px 55px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
         }
 
         .team-vs-display {
-            font-size: 40px;
+            font-size: 56px;
             font-weight: 900;
             letter-spacing: 1px;
             color: #ffffff;
         }
 
         .team-vs-display span {
-            color: #64748b;
-            font-weight: 400;
-            margin: 0 15px;
-            font-size: 32px;
+            color: #94a3b8;
+            font-weight: 700;
+            margin: 0 20px;
+            font-size: 46px;
         }
 
         .group-badge {
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 800;
             color: #ffd700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 8px;
+            letter-spacing: 3px;
+            margin-top: 14px;
         }
 
         .meta-display {
@@ -176,71 +176,70 @@
         }
 
         .meta-time {
-            font-size: 38px;
+            font-size: 54px;
             font-weight: 900;
             color: #00b0ff;
             letter-spacing: 1px;
         }
 
         .meta-stadium {
-            font-size: 20px;
-            color: #94a3b8;
-            font-weight: 600;
-            margin-top: 5px;
+            font-size: 26px;
+            color: #cbd5e1;
+            font-weight: 700;
+            margin-top: 10px;
         }
 
-        /* Mid-Poster Secondary Promo Copy */
+        /* High-Impact Secondary Copy Block */
         .body-closing {
-            font-size: 28px;
+            font-size: 36px;
             line-height: 1.6;
-            color: #cbd5e1;
+            color: #e2e8f0;
             text-align: center;
-            max-width: 1150px;
-            margin: 0 auto 65px auto;
-            font-weight: 400;
-            font-style: italic;
+            max-width: 1220px;
+            margin: 0 auto 80px auto;
+            font-weight: 700;
         }
 
         /* Standalone Isolated Info Rows Section */
         .info-rows-container {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            margin-bottom: auto; /* Pushes content down to keep canvas completely full */
+            gap: 30px;
+            margin-bottom: auto; /* Uses available spacing to fully expand layout vertically */
         }
 
         .standalone-row {
-            background: rgba(5, 11, 24, 0.85);
-            border: 2px solid rgba(0, 176, 255, 0.2);
-            border-radius: 16px;
-            padding: 30px 40px;
+            background: rgba(5, 11, 24, 0.9);
+            border: 3px solid rgba(0, 176, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px 50px;
             display: flex;
             align-items: center;
-            gap: 35px;
-            backdrop-filter: blur(10px);
+            gap: 45px;
+            backdrop-filter: blur(15px);
         }
 
         .row-icon-box {
-            font-size: 55px;
+            font-size: 75px;
             line-height: 1;
-            min-width: 70px;
+            min-width: 90px;
             text-align: center;
         }
 
         .row-text-pane h4 {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 34px;
+            font-weight: 900;
             text-transform: uppercase;
             color: #ffd700;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             letter-spacing: 2px;
         }
 
         .row-text-pane p {
-            font-size: 24px;
-            color: #e2e8f0;
-            line-height: 1.4;
-            font-weight: 500;
+            font-size: 32px;
+            color: #ffffff;
+            line-height: 1.5;
+            font-weight: 700;
         }
 
         .row-text-pane p strong {
@@ -249,9 +248,9 @@
 
         /* Branded Footer App Banner */
         .app-footer-banner {
-            border-top: 3px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
-            margin-top: 40px;
+            border-top: 4px solid rgba(255, 255, 255, 0.15);
+            padding-top: 50px;
+            margin-top: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -259,13 +258,13 @@
 
         .app-banner-container {
             background: #000b1d;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
             width: 100%;
-            padding: 25px 50px;
+            padding: 30px 60px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 40px;
         }
 
         .app-logo-box {
@@ -273,23 +272,22 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
         }
 
         .app-text-prompt {
-            font-size: 38px;
-            font-weight: 700;
+            font-size: 48px;
+            font-weight: 900;
             color: #ffffff;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
     <div class="branding-header">
-        <div class="brand-main">Saudi Aramco Community Services</div>
-        <div class="brand-sub">Abqaiq Recreation Services</div>
+        <div class="brand-main">Community Services</div>
     </div>
 
     <div class="title-group">
@@ -304,29 +302,18 @@
     <div class="schedule-hub">
         <div class="hub-date-header">
             <div class="hub-date-badge">TODAY</div>
-            <div class="hub-date-title">Monday, June 15</div>
+            <div class="hub-date-title">Friday, June 12</div>
         </div>
         
         <div class="match-matrix">
             <div class="big-match-card">
                 <div>
-                    <div class="team-vs-display">Spain <span>vs</span> Cabo Verde</div>
-                    <div class="group-badge">Group H</div>
+                    <div class="team-vs-display">Mexico <span>vs</span> Group A Opponent</div>
+                    <div class="group-badge">Group A • Opening Match</div>
                 </div>
                 <div class="meta-display">
-                    <div class="meta-time">12:00 PM</div>
-                    <div class="meta-stadium">Atlanta Stadium</div>
-                </div>
-            </div>
-            
-            <div class="big-match-card" style="border-left-color: #00e676;">
-                <div>
-                    <div class="team-vs-display">Saudi Arabia <span>vs</span> Uruguay</div>
-                    <div class="group-badge">Group H</div>
-                </div>
-                <div class="meta-display">
-                    <div class="meta-time">06:00 PM</div>
-                    <div class="meta-stadium">Miami Stadium</div>
+                    <div class="meta-time">08:00 PM</div>
+                    <div class="meta-stadium">Estadio Azteca</div>
                 </div>
             </div>
         </div>
@@ -341,12 +328,12 @@
         <div class="standalone-row">
             <div class="row-icon-box">📍</div>
             <div class="row-text-pane">
-                <h4>Screening Location</h4>
-                <p>Live matches will be broadcasted directly at the premium <strong>Deer Park Venue</strong>.</p>
+                <h4>Location</h4>
+                <p>Live matches will be broadcasted directly at the <strong> Deer Park </strong>.</p>
             </div>
         </div>
 
-        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.3);">
+        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.4); shadow: 0px 0px 15px rgba(0,230,118,0.2);">
             <div class="row-icon-box">⚽</div>
             <div class="row-text-pane">
                 <h4>FAN FUN ZONE &amp; Challenges</h4>
@@ -354,7 +341,7 @@
             </div>
         </div>
 
-        <div class="standalone-row" style="border-color: rgba(255, 215, 0, 0.3);">
+        <div class="standalone-row" style="border-color: rgba(255, 215, 0, 0.4);">
             <div class="row-icon-box">🍔</div>
             <div class="row-text-pane">
                 <h4>Remal Mall Food Court</h4>
