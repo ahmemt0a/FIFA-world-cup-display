@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aramco Communities - FIFA World Cup 2026</title>
+    <title>Aramco Communities - World Cup Today Display</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap');
 
         * {
             box-sizing: border-box;
@@ -12,11 +12,11 @@
             padding: 0;
         }
 
-        /* Fixed 20" x 36" resolution canvas using the uploaded stadium asset as a background */
+        /* 20" x 36" Locked Resolution Canvas using Stadium Asset Background */
         body {
             font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(to right, #050b18 35%, rgba(5, 11, 24, 0.4) 70%, transparent 100%), 
-                        url('image_764920.jpg') no-repeat right center;
+            background: linear-gradient(to bottom, rgba(5, 11, 24, 0.9) 0%, rgba(5, 11, 24, 0.5) 50%, #050b18 90%), 
+                        url('image_764920.jpg') no-repeat center center;
             background-size: cover;
             color: #ffffff;
             width: 1440px;
@@ -24,21 +24,21 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding: 60px 70px 80px 70px;
+            padding: 70px 80px;
         }
 
-        /* Top Corporate Branding Layout */
+        /* Top Corporate Identity Header Bar */
         .branding-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
         }
 
         .brand-main {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
@@ -46,214 +46,250 @@
         }
 
         .brand-sub {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #94a3b8;
-            text-align: right;
         }
 
-        /* Main Heading Group */
+        /* Main Typography Header Section */
         .title-group {
-            max-width: 900px;
-            margin-bottom: 45px;
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         h1 {
-            font-size: 82px;
+            font-size: 96px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             line-height: 1.1;
-            background: linear-gradient(90deg, #ffffff, #ffd700);
+            background: linear-gradient(180deg, #ffffff 0%, #ffd700 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .sub-heading {
-            font-size: 42px;
+            font-size: 46px;
             color: #00e676;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             margin-top: 15px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        /* Body Copy Blocks */
-        .body-text-primary {
-            font-size: 26px;
+        /* Narrative Description Block */
+        .body-intro {
+            font-size: 32px;
             line-height: 1.5;
-            color: #e2e8f0;
-            max-width: 880px;
-            margin-bottom: 45px;
+            color: #f1f5f9;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
             font-weight: 500;
         }
 
-        .body-text-secondary {
-            font-size: 24px;
-            line-height: 1.5;
+        /* Dynamic Single-Day Schedule Hub Section */
+        .schedule-hub {
+            background: rgba(15, 23, 42, 0.85);
+            border: 2px solid rgba(0, 230, 118, 0.3);
+            border-radius: 20px;
+            padding: 45px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin-bottom: 65px;
+        }
+
+        .hub-date-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .hub-date-badge {
+            background: linear-gradient(135deg, #00e676 0%, #00a352 100%);
+            color: #050810;
+            font-size: 36px;
+            font-weight: 900;
+            padding: 10px 30px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hub-date-title {
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        /* Large Daily Match Layout Matrix */
+        .match-matrix {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .big-match-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 8px solid #ffd700;
+            border-radius: 12px;
+            padding: 35px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-vs-display {
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .team-vs-display span {
+            color: #64748b;
+            font-weight: 400;
+            margin: 0 15px;
+            font-size: 32px;
+        }
+
+        .group-badge {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        .meta-display {
+            text-align: right;
+        }
+
+        .meta-time {
+            font-size: 38px;
+            font-weight: 900;
+            color: #00b0ff;
+            letter-spacing: 1px;
+        }
+
+        .meta-stadium {
+            font-size: 20px;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Mid-Poster Secondary Promo Copy */
+        .body-closing {
+            font-size: 28px;
+            line-height: 1.6;
             color: #cbd5e1;
-            max-width: 850px;
-            margin-top: 45px;
-            margin-bottom: 55px;
+            text-align: center;
+            max-width: 1150px;
+            margin: 0 auto 65px auto;
             font-weight: 400;
             font-style: italic;
         }
 
-        /* Match Fixture Grid Frame (Date Wise) */
-        .schedule-wrap {
-            max-width: 880px;
+        /* Standalone Isolated Info Rows Section */
+        .info-rows-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
+            margin-bottom: auto; /* Pushes content down to keep canvas completely full */
         }
 
-        .day-row {
+        .standalone-row {
+            background: rgba(5, 11, 24, 0.85);
+            border: 2px solid rgba(0, 176, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px 40px;
             display: flex;
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            backdrop-filter: blur(15px);
-        }
-
-        .date-badge {
-            width: 180px;
-            background: linear-gradient(180deg, #00e676 0%, #00a352 100%);
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 15px;
-            color: #050810;
-        }
-
-        .date-badge .day-txt {
-            font-size: 20px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .date-badge .num-txt {
-            font-size: 44px;
-            font-weight: 900;
-            line-height: 1;
-            margin: 2px 0;
-        }
-
-        .date-badge .mon-txt {
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .matches-list {
-            flex: 1;
-            padding: 20px 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .match-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid #ffd700;
-            border-radius: 6px;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .versus-team {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .versus-team span {
-            color: #64748b;
-            font-weight: 400;
-            margin: 0 6px;
-            font-size: 18px;
-        }
-
-        .grp-lbl {
-            font-size: 14px;
-            font-weight: 700;
-            color: #ffd700;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        .match-timing {
-            text-align: right;
-        }
-
-        .m-time {
-            font-size: 20px;
-            font-weight: 800;
-            color: #00b0ff;
-        }
-
-        .m-stadium {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-top: 2px;
-        }
-
-        /* Footer Event Meta Information Blocks */
-        .footer-info-panel {
-            margin-top: auto;
-            max-width: 900px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
-        }
-
-        .info-card {
-            background: rgba(5, 11, 24, 0.8);
-            border: 1px solid rgba(0, 176, 255, 0.2);
-            border-radius: 12px;
-            padding: 25px 30px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
+            gap: 35px;
             backdrop-filter: blur(10px);
         }
 
-        .info-icon {
-            font-size: 40px;
+        .row-icon-box {
+            font-size: 55px;
             line-height: 1;
+            min-width: 70px;
+            text-align: center;
         }
 
-        .info-content h4 {
-            font-size: 22px;
+        .row-text-pane h4 {
+            font-size: 28px;
             font-weight: 800;
             text-transform: uppercase;
             color: #ffd700;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
         }
 
-        .info-content p {
-            font-size: 18px;
+        .row-text-pane p {
+            font-size: 24px;
             color: #e2e8f0;
             line-height: 1.4;
             font-weight: 500;
+        }
+
+        .row-text-pane p strong {
+            color: #00e676;
+        }
+
+        /* Branded Footer App Banner */
+        .app-footer-banner {
+            border-top: 3px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-banner-container {
+            background: #000b1d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            width: 100%;
+            padding: 25px 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .app-logo-box {
+            background-image: url('image_6bc9b0.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100px;
+            height: 100px;
+        }
+
+        .app-text-prompt {
+            font-size: 38px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="branding-header">
-        <div class="brand-main">Community Services</div>
+        <div class="brand-main">Saudi Aramco Community Services</div>
+        <div class="brand-sub">Abqaiq Recreation Services</div>
     </div>
 
     <div class="title-group">
@@ -261,86 +297,78 @@
         <div class="sub-heading">Comes to Aramco Communities</div>
     </div>
 
-    <p class="body-text-primary">
-        The world’s biggest sporting event is here for you! Join live FIFA World Cup screenings that bring the electrifying atmosphere of the stadium straight to your doorstep and the <strong>FAN FUN ZONE</strong> with interactive games, activities / challenges.
+    <p class="body-intro">
+        The world’s biggest sporting event is here for you! Join live FIFA World Cup screenings that bring the electrifying atmosphere of the stadium straight to your doorstep and the FAN FUN ZONE with interactive games, activities / challenges.
     </p>
 
-    <div class="schedule-wrap">
+    <div class="schedule-hub">
+        <div class="hub-date-header">
+            <div class="hub-date-badge">TODAY</div>
+            <div class="hub-date-title">Monday, June 15</div>
+        </div>
         
-        <div class="day-row">
-            <div class="date-badge">
-                <span class="day-txt">Monday</span>
-                <span class="num-txt">15</span>
-                <span class="mon-txt">June</span>
-            </div>
-            <div class="matches-list">
-                <div class="match-card">
-                    <div>
-                        <div class="versus-team">Spain <span>vs</span> Cabo Verde</div>
-                        <div class="grp-lbl">Group H</div>
-                    </div>
-                    <div class="match-timing">
-                        <div class="m-time">12:00 PM</div>
-                        <div class="m-stadium">Atlanta Stadium</div>
-                    </div>
+        <div class="match-matrix">
+            <div class="big-match-card">
+                <div>
+                    <div class="team-vs-display">Spain <span>vs</span> Cabo Verde</div>
+                    <div class="group-badge">Group H</div>
                 </div>
-                <div class="match-card">
-                    <div>
-                        <div class="versus-team">Saudi Arabia <span>vs</span> Uruguay</div>
-                        <div class="grp-lbl">Group H</div>
-                    </div>
-                    <div class="match-timing">
-                        <div class="m-time">06:00 PM</div>
-                        <div class="m-stadium">Miami Stadium</div>
-                    </div>
+                <div class="meta-display">
+                    <div class="meta-time">12:00 PM</div>
+                    <div class="meta-stadium">Atlanta Stadium</div>
+                </div>
+            </div>
+            
+            <div class="big-match-card" style="border-left-color: #00e676;">
+                <div>
+                    <div class="team-vs-display">Saudi Arabia <span>vs</span> Uruguay</div>
+                    <div class="group-badge">Group H</div>
+                </div>
+                <div class="meta-display">
+                    <div class="meta-time">06:00 PM</div>
+                    <div class="meta-stadium">Miami Stadium</div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="day-row">
-            <div class="date-badge" style="background: linear-gradient(180deg, #00b0ff 0%, #0070ba 100%);">
-                <span class="day-txt">Tuesday</span>
-                <span class="num-txt">16</span>
-                <span class="mon-txt">June</span>
+    <p class="body-closing">
+        Cheer on your favorite teams, feel every heart-stopping goal, and soak up the passion, pride, and pure excitement of the greatest football tournament on earth — all surrounded by family, friends, and community. Don’t miss a single moment of the magic.
+    </p>
+
+    <div class="info-rows-container">
+        
+        <div class="standalone-row">
+            <div class="row-icon-box">📍</div>
+            <div class="row-text-pane">
+                <h4>Screening Location</h4>
+                <p>Live matches will be broadcasted directly at the premium <strong>Deer Park Venue</strong>.</p>
             </div>
-            <div class="matches-list">
-                <div class="match-card" style="border-left-color: #00e676;">
-                    <div>
-                        <div class="versus-team">France <span>vs</span> Senegal</div>
-                        <div class="grp-lbl">Group I</div>
-                    </div>
-                    <div class="match-timing">
-                        <div class="m-time">03:00 PM</div>
-                        <div class="m-stadium">New York NJ Stadium</div>
-                    </div>
-                </div>
+        </div>
+
+        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.3);">
+            <div class="row-icon-box">⚽</div>
+            <div class="row-text-pane">
+                <h4>FAN FUN ZONE &amp; Challenges</h4>
+                <p>Interactive mini-games, family activities, and exciting football challenges kick off daily at <strong>5:00 PM</strong>.</p>
+            </div>
+        </div>
+
+        <div class="standalone-row" style="border-color: rgba(255, 215, 0, 0.3);">
+            <div class="row-icon-box">🍔</div>
+            <div class="row-text-pane">
+                <h4>Remal Mall Food Court</h4>
+                <p>Stays open late until <strong>12:00 Midnight</strong> throughout the entire tournament with special match-day discounts!</p>
             </div>
         </div>
 
     </div>
 
-    <p class="body-text-secondary">
-        Cheer on your favorite teams, feel every heart-stopping goal, and soak up the passion, pride, and pure excitement of the greatest football tournament on earth — all surrounded by family, friends, and community. Don’t miss a single moment of the magic.
-    </p>
-
-    <div class="footer-info-panel">
-        
-        <div class="info-card">
-            <div class="info-icon">📍</div>
-            <div class="info-content">
-                <h4>Location &amp; Activities</h4>
-                <p><strong>Deer Park Venue</strong><br>FAN FUN ZONE activities and FIFA challenges start daily at <strong>5:00 PM</strong>.</p>
-            </div>
+    <div class="app-footer-banner">
+        <div class="app-banner-container">
+            <div class="app-logo-box"></div>
+            <div class="app-text-prompt">Download myCommunity app</div>
         </div>
-
-        <div class="info-card" style="border-color: rgba(0, 230, 118, 0.3);">
-            <div class="info-icon">🍔</div>
-            <div class="info-content">
-                <h4>Remal Mall Food Court</h4>
-                <p>Open until <strong>12:00 Midnight</strong> daily during the tournament with exciting match-day discounts!</p>
-            </div>
-        </div>
-
     </div>
 
 </body>
