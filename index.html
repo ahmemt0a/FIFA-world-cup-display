@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Aramco Communities - World Cup Live Streaming</title>
     <style>
-        /* Embedding Manifa Pro 2 font alongside a heavy Montserrat backup for bold stadium impact */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 
         * {
@@ -131,7 +130,7 @@
             color: #ffffff;
         }
 
-        /* Massive Match Card Presentation Panels */
+        /* Large Match Card Presentation Panels */
         .match-matrix {
             display: flex;
             flex-direction: column;
@@ -146,20 +145,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
+        }
+
+        .team-vs-container {
+            flex: 1;
+            max-width: 70%;
         }
 
         .team-vs-display {
-            font-size: 56px;
+            font-size: 54px;
             font-weight: 900;
             letter-spacing: 1px;
             color: #ffffff;
+            line-height: 1.3;
+            word-wrap: break-word;
         }
 
         .team-vs-display span {
             color: #94a3b8;
             font-weight: 700;
-            margin: 0 20px;
-            font-size: 46px;
+            margin: 0 15px;
+            font-size: 44px;
         }
 
         .group-badge {
@@ -173,6 +180,7 @@
 
         .meta-display {
             text-align: right;
+            min-width: 25%;
         }
 
         .meta-time {
@@ -187,6 +195,16 @@
             color: #cbd5e1;
             font-weight: 700;
             margin-top: 10px;
+            line-height: 1.3;
+        }
+
+        /* Standalone No Matches Placeholder Style */
+        .no-matches {
+            font-size: 42px;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 0;
+            font-weight: 700;
         }
 
         /* High-Impact Secondary Copy Block */
@@ -205,7 +223,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            margin-bottom: auto; /* Uses available spacing to fully expand layout vertically */
+            margin-bottom: auto;
         }
 
         .standalone-row {
@@ -302,21 +320,11 @@
     <div class="schedule-hub">
         <div class="hub-date-header">
             <div class="hub-date-badge">TODAY</div>
-            <div class="hub-date-title">Friday, June 12</div>
+            <div id="live-date-title" class="hub-date-title">Loading Date...</div>
         </div>
         
-        <div class="match-matrix">
-            <div class="big-match-card">
-                <div>
-                    <div class="team-vs-display">Mexico <span>vs</span> Group A Opponent</div>
-                    <div class="group-badge">Group A • Opening Match</div>
-                </div>
-                <div class="meta-display">
-                    <div class="meta-time">08:00 PM</div>
-                    <div class="meta-stadium">Estadio Azteca</div>
-                </div>
+        <div id="live-match-matrix" class="match-matrix">
             </div>
-        </div>
     </div>
 
     <p class="body-closing">
@@ -333,7 +341,7 @@
             </div>
         </div>
 
-        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.4); shadow: 0px 0px 15px rgba(0,230,118,0.2);">
+        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.4);">
             <div class="row-icon-box">⚽</div>
             <div class="row-text-pane">
                 <h4>FAN FUN ZONE &amp; Challenges</h4>
@@ -358,5 +366,63 @@
         </div>
     </div>
 
+    <script>
+        // Complete Tournament Master Database organized precisely by date string "YYYY-MM-DD"
+        const tournamentSchedule = {
+            "2026-06-12": [
+                { teams: "Mexico vs Group A Opponent", group: "Group A • Opening Match", time: "08:00 PM", stadium: "Estadio Azteca" }
+            ],
+            "2026-06-13": [
+                { teams: "United States vs Group B Contender", group: "Group B • Marquee Match", time: "09:00 PM", stadium: "SoFi Stadium, LA" }
+            ],
+            "2026-06-14": [
+                { teams: "Canada vs Group C Opponent", group: "Group C • Matchday 1", time: "07:00 PM", stadium: "BC Place, Vancouver" },
+                { teams: "Argentina vs Group D Contender", group: "Group D • Matchday 1", time: "10:00 PM", stadium: "MetLife Stadium" }
+            ]
+            // 💡 You can easily add more dates here following the exact same formatting pattern!
+        };
+
+        function updateLivePoster() {
+            const today = new Date();
+            
+            // Format year, month, and day to create the database look-up key (e.g. "2026-06-13")
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const lookupKey = `${yyyy}-${mm}-${dd}`;
+
+            // Update the display text to look like "Saturday, June 13"
+            const options = { weekday: 'long', month: 'long', day: 'numeric' };
+            document.getElementById("live-date-title").innerText = today.toLocaleDateString('en-US', options);
+
+            const matrixContainer = document.getElementById("live-match-matrix");
+            matrixContainer.innerHTML = ""; // Clear out older template data
+
+            // Check if there are scheduled matches for today
+            if (tournamentSchedule[lookupKey] && tournamentSchedule[lookupKey].length > 0) {
+                tournamentSchedule[lookupKey].forEach(match => {
+                    const cardHtml = `
+                        <div class="big-match-card">
+                            <div class="team-vs-container">
+                                <div class="team-vs-display">${match.teams.replace(" vs ", " <span>vs</span> ")}</div>
+                                <div class="group-badge">${match.group}</div>
+                            </div>
+                            <div class="meta-display">
+                                <div class="meta-time">${match.time}</div>
+                                <div class="meta-stadium">${match.stadium}</div>
+                            </div>
+                        </div>
+                    `;
+                    matrixContainer.innerHTML += cardHtml;
+                });
+            } else {
+                // Friendly fallback notice text if there are no matches on a particular day
+                matrixContainer.innerHTML = `<div class="no-matches">No live matches scheduled for today. See you at the Fan Zone!</div>`;
+            }
+        }
+
+        // Run automation immediately when the kiosk display screen boots up the URL
+        window.onload = updateLivePoster;
+    </script>
 </body>
 </html>
