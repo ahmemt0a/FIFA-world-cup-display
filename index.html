@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aramco Communities - World Cup Today Display</title>
+    <title>Abqaiq Community - World Cup Live Streaming</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
 
@@ -12,10 +12,10 @@
             padding: 0;
         }
 
-        /* Fixed Portrait Canvas - Strict Bounds to Prevent Any Empty Scaling Gaps */
+        /* Fixed Portrait Canvas - Optimized with high vibrancy contrast tints */
         body {
             font-family: 'ManifaPro2 Veriable', 'ManifaPro2', 'Montserrat', 'Segoe UI', sans-serif;
-            background: linear-gradient(to bottom, rgba(5, 11, 24, 0.95) 0%, rgba(5, 11, 24, 0.6) 50%, #050b18 95%), 
+            background: linear-gradient(to bottom, rgba(16, 37, 73, 0.45) 0%, rgba(10, 24, 51, 0.3) 50%, #060e1c 95%), 
                         url('image_764920.jpg') no-repeat center center;
             background-size: cover;
             color: #ffffff;
@@ -27,12 +27,12 @@
             padding: 90px 80px 60px 80px;
         }
 
-        /* Branding Header */
+        /* Branding Header - Enhanced contrast edge lines */
         .branding-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 4px solid rgba(255, 255, 255, 0.35);
             padding-bottom: 25px;
             margin-bottom: 60px;
         }
@@ -42,15 +42,7 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 5px;
-            color: #00b0ff;
-        }
-
-        .brand-sub {
-            font-size: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #94a3b8;
+            color: #00e5ff; /* High-visibility bright neon cyan */
         }
 
         /* Header Block */
@@ -65,18 +57,20 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             line-height: 1.1;
-            background: linear-gradient(180deg, #ffffff 0%, #ffd700 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #ffea00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.6));
         }
 
         .sub-heading {
             font-size: 54px;
-            color: #00e676;
+            color: #00ff88; /* Ultra-bright neon green */
             text-transform: uppercase;
             letter-spacing: 7px;
             margin-top: 20px;
             font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         /* Intro Text Block */
@@ -88,18 +82,18 @@
             max-width: 1260px;
             margin: 0 auto 60px auto;
             font-weight: 700;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.8);
         }
 
-        /* Fixed Dimensions Schedule Hub (Locks card position perfectly) */
+        /* Sized Schedule Hub - Dynamic height system to allow dual-match scaling safely */
         .schedule-hub {
-            background: rgba(9, 17, 34, 0.95);
-            border: 3px solid rgba(0, 230, 118, 0.4);
+            background: rgba(22, 42, 82, 0.95); 
+            border: 5px solid #00ff88; 
             border-radius: 24px;
             padding: 45px 50px;
-            backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             margin-bottom: 60px;
-            height: 560px; /* Locked height preserves original visual layout */
+            min-height: 560px;
             display: flex;
             flex-direction: column;
         }
@@ -109,18 +103,18 @@
             align-items: center;
             justify-content: center;
             gap: 25px;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 4px solid rgba(255, 255, 255, 0.3);
             padding-bottom: 25px;
             margin-bottom: 35px;
         }
 
         .hub-date-badge {
-            background: linear-gradient(135deg, #00e676 0%, #00a352 100%);
-            color: #050810;
+            background: linear-gradient(135deg, #00ff88 0%, #00e5ff 100%);
+            color: #030710;
             font-size: 40px;
             font-weight: 900;
             padding: 10px 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -133,25 +127,30 @@
             color: #ffffff;
         }
 
-        /* Intelligent Grid Matrix (Automatically splits into 2 columns if 2 matches exist) */
+        /* Flexible Grid Matrix Configuration */
         .match-matrix {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
             align-items: center;
-            height: 100%;
         }
 
-        /* Standardized Match Presentation Cards */
+        /* Shifts matrix cleanly into a 2-column spread if a day has multiple matches */
+        .match-matrix.multi-match {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* Match Presentation Cards - High contrast background fill */
         .big-match-card {
-            background: rgba(255, 255, 255, 0.04);
-            border-left: 12px solid #ffd700;
+            background: rgba(255, 255, 255, 0.12); 
+            border-left: 14px solid #ffea00; 
             border-radius: 16px;
             padding: 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
         }
 
         .team-vs-container {
@@ -167,19 +166,19 @@
         }
 
         .team-vs-display span {
-            color: #94a3b8;
-            font-weight: 700;
-            margin: 0 10px;
-            font-size: 34px;
+            color: #00e5ff; 
+            font-weight: 800;
+            margin: 0 12px;
+            font-size: 36px;
         }
 
         .group-badge {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
-            color: #ffd700;
+            color: #ffea00; 
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .meta-display {
@@ -188,55 +187,57 @@
         }
 
         .meta-time {
-            font-size: 46px;
+            font-size: 48px;
             font-weight: 900;
-            color: #00b0ff;
+            color: #00ff88; 
             letter-spacing: 1px;
         }
 
         .meta-stadium {
             font-size: 24px;
-            color: #cbd5e1;
+            color: #ffffff;
             font-weight: 700;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .no-matches {
-            font-size: 42px;
-            color: #94a3b8;
+            font-size: 44px;
+            color: #ffffff;
             text-align: center;
-            font-weight: 700;
+            font-weight: 800;
             grid-column: 1 / -1;
+            padding: 40px 0;
         }
 
-        /* Closing Paragraph Text Block */
+        /* Closing Text Block */
         .body-closing {
             font-size: 36px;
             line-height: 1.6;
-            color: #e2e8f0;
+            color: #ffffff;
             text-align: center;
             max-width: 1240px;
             margin: 0 auto 60px auto;
             font-weight: 700;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
         }
 
-        /* Isolated Meta Information Section */
+        /* Meta Information Rows */
         .info-rows-container {
             display: flex;
             flex-direction: column;
             gap: 30px;
-            margin-bottom: auto; /* Ensures footer content links directly to edge boundaries */
+            margin-bottom: auto;
         }
 
         .standalone-row {
-            background: rgba(5, 11, 24, 0.9);
-            border: 3px solid rgba(0, 176, 255, 0.3);
+            background: #14233c; 
+            border: 4px solid #00e5ff; 
             border-radius: 20px;
             padding: 35px 50px;
             display: flex;
             align-items: center;
             gap: 45px;
-            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .row-icon-box {
@@ -250,7 +251,7 @@
             font-size: 34px;
             font-weight: 900;
             text-transform: uppercase;
-            color: #ffd700;
+            color: #ffea00;
             margin-bottom: 8px;
             letter-spacing: 2px;
         }
@@ -263,12 +264,12 @@
         }
 
         .row-text-pane p strong {
-            color: #00e676;
+            color: #00ff88;
         }
 
         /* Branded Footer App Banner */
         .app-footer-banner {
-            border-top: 4px solid rgba(255, 255, 255, 0.15);
+            border-top: 4px solid rgba(255, 255, 255, 0.35);
             padding-top: 40px;
             display: flex;
             justify-content: center;
@@ -276,8 +277,8 @@
         }
 
         .app-banner-container {
-            background: #000b1d;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            background: #101d33; 
+            border: 3px solid rgba(255, 255, 255, 0.4);
             border-radius: 20px;
             width: 100%;
             padding: 30px 60px;
@@ -315,7 +316,7 @@
     </div>
 
     <p class="body-intro">
-        The world’s biggest sporting event is here for you! Join live FIFA World Cup screenings that bring the electrifying atmosphere of the stadium straight to your doorstep and the FAN FAN ZONE with interactive games, activities / challenges.
+        The world’s biggest sporting event is here for you! Join live FIFA World Cup screenings that bring the electrifying atmosphere of the stadium straight to your doorstep and the FAN FUN ZONE with interactive games, activities / challenges.
     </p>
 
     <div class="schedule-hub">
@@ -337,12 +338,12 @@
         <div class="standalone-row">
             <div class="row-icon-box">📍</div>
             <div class="row-text-pane">
-                <h4>Location</h4>
+                <h4>Screening Location</h4>
                 <p>Live matches will be broadcasted directly at the <strong>Deer Park</strong>.</p>
             </div>
         </div>
 
-        <div class="standalone-row" style="border-color: rgba(0, 230, 118, 0.4);">
+        <div class="standalone-row" style="border-color: #00ff88;">
             <div class="row-icon-box">⚽</div>
             <div class="row-text-pane">
                 <h4>FAN FUN ZONE &amp; Challenges</h4>
@@ -350,7 +351,7 @@
             </div>
         </div>
 
-        <div class="standalone-row" style="border-color: rgba(255, 215, 0, 0.4);">
+        <div class="standalone-row" style="border-color: #ffea00;">
             <div class="row-icon-box">🍔</div>
             <div class="row-text-pane">
                 <h4>Remal Mall Food Court</h4>
@@ -368,22 +369,44 @@
     </div>
 
     <script>
+        // Full spreadsheet schedule indexed perfectly by Calendar Day for June 2026
         const dailyScheduleDatabase = {
-            12: [
-                { teams: "Mexico vs Group A Opponent", group: "Group A • Opening Match", time: "08:00 PM", stadium: "Estadio Azteca" }
+            18: [
+                { teams: "Czechia vs South Africa", group: "Group Stage • Matchday 1", time: "07:00 PM", stadium: "Live Stream" }
             ],
-            13: [
-                { teams: "United States vs Group B Contender", group: "Group B • Marquee Match", time: "09:00 PM", stadium: "SoFi Stadium, LA" }
+            19: [
+                { teams: "USA vs Australia", group: "Group Stage • Showdown", time: "10:00 PM", stadium: "Live Stream" }
             ],
-            14: [
-                { teams: "Canada vs Group D Opponent", group: "Group D • Matchday 1", time: "07:00 PM", stadium: "BC Place, Vancouver" },
-                { teams: "Argentina vs Group C Contender", group: "Group C • Matchday 1", time: "10:00 PM", stadium: "MetLife Stadium" }
+            20: [
+                { teams: "Netherlands vs Sweden", group: "Group Stage • Matchday 1", time: "08:00 PM", stadium: "Live Stream" }
+            ],
+            21: [
+                { teams: "Spain vs Saudi Arabia", group: "Group Stage • National Spotlight", time: "07:00 PM", stadium: "Live Stream" }
+            ],
+            22: [
+                { teams: "Argentina vs Austria", group: "Group Stage • Matchday 1", time: "08:00 PM", stadium: "Live Stream" }
+            ],
+            23: [
+                { teams: "Portugal vs Uzbekistan", group: "Group Stage • Matchday 1", time: "08:00 PM", stadium: "Live Stream" }
+            ],
+            24: [
+                { teams: "Bosnia and Herzegovina vs Qatar", group: "Group Stage • Matchday 1", time: "10:00 PM", stadium: "Live Stream" }
+            ],
+            25: [
+                { teams: "Ecuador vs Germany", group: "Group Stage • Matchday 1", time: "11:00 PM", stadium: "Live Stream" }
+            ],
+            26: [
+                { teams: "Senegal vs Iraq", group: "Group Stage • Matchday 1", time: "10:00 PM", stadium: "Live Stream" }
+            ],
+            27: [
+                { teams: "Cape Verde vs Saudi Arabia", group: "Group Stage • National Spotlight", time: "03:00 AM", stadium: "Live Stream" }
             ]
         };
 
         function renderMatches() {
             const today = new Date();
             const currentDayNumber = today.getDate(); 
+            const currentMonth = today.getMonth(); // 5 represents June
             
             const labelOptions = { weekday: 'long', month: 'long', day: 'numeric' };
             document.getElementById("live-date-title").innerText = today.toLocaleDateString('en-US', labelOptions);
@@ -391,14 +414,22 @@
             const matrix = document.getElementById("live-match-matrix");
             matrix.innerHTML = "";
 
-            const todaysMatches = dailyScheduleDatabase[currentDayNumber];
+            // Guard rails to make sure it functions precisely for the June calendar schedule
+            const todaysMatches = (currentMonth === 5) ? dailyScheduleDatabase[currentDayNumber] : null;
 
             if (todaysMatches && todaysMatches.length > 0) {
+                // Instantly inject the side-by-side spacing structure if there are 2 matches
+                if (todaysMatches.length > 1) {
+                    matrix.classList.add("multi-match");
+                } else {
+                    matrix.classList.remove("multi-match");
+                }
+
                 todaysMatches.forEach(match => {
                     const matchCard = `
                         <div class="big-match-card">
-                            <div class="team-vs-team">
-                                <div class="team-vs-display">${match.teams.replace(" vs ", " <span>vs</span> ")}</div>
+                            <div class="team-vs-container">
+                                <div class="team-vs-display">${match.teams.replace(" vs ", " <span>vs</span> ").replace(" VS ", " <span>vs</span> ")}</div>
                                 <div class="group-badge">${match.group}</div>
                             </div>
                             <div class="meta-display">
@@ -410,10 +441,12 @@
                     matrix.innerHTML += matchCard;
                 });
             } else {
+                matrix.classList.remove("multi-match");
                 matrix.innerHTML = `<div class="no-matches">No live matches scheduled for today. Check back tomorrow!</div>`;
             }
         }
 
+        // Auto-run layout script instantly on deployment load
         window.onload = renderMatches;
     </script>
 </body>
