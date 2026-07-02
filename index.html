@@ -397,7 +397,7 @@
         function renderMatches() {
             const today = new Date();
             const currentDayNumber = today.getDate(); 
-            const currentMonth = today.getMonth(); // 5 corresponds to July;
+            const currentMonth = today.getMonth(); // 6 corresponds to July;
             
             const labelOptions = { weekday: 'long', month: 'long', day: 'numeric' };
             document.getElementById("live-date-title").innerText = today.toLocaleDateString('en-US', labelOptions);
@@ -406,7 +406,7 @@
             matrix.innerHTML = "";
 
             // Ensures calculations are target-locked onto the July event window
-            const todaysMatches = (currentMonth === 5) ? dailyScheduleDatabase[currentDayNumber] : null;
+            const todaysMatches = (currentMonth === 6) ? dailyScheduleDatabase[currentDayNumber] : null;
 
             if (todaysMatches && todaysMatches.length > 0) {
                 // Dynamically append spacing wrapper layout if more than one match is active
