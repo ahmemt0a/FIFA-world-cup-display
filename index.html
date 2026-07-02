@@ -377,59 +377,27 @@
     <script>
         // Updated daily database structure mapping the spreadsheet table accurately
         const dailyScheduleDatabase = {
-            18: [
-                { teams: "Czechia vs South Africa", group: "Group Stage", time: "07:00 PM", stadium: "Atlanta" },
-                { teams: "Switzerland vs Bosnia and Herzegovina", group: "Group Stage", time: "10:00 PM", stadium: "Los Angeles" }
-            ],
-            19: [
-                { teams: "USA vs Australia", group: "Group Stage", time: "10:00 PM", stadium: "Seattle" }
-            ],
-            20: [
-                { teams: "Netherlands vs Sweden", group: "Group Stage", time: "08:00 PM", stadium: "Houston" },
-                { teams: "Germany vs Ivory Coast", group: "Group Stage", time: "11:00 PM", stadium: "Toronto" }
-            ],
-            21: [
-                { teams: "Spain vs Saudi Arabia", group: "Group Stage • National Spotlight", time: "07:00 PM", stadium: "Atlanta" }
-            ],
-            22: [
-                { teams: "Argentina vs Austria", group: "Group Stage", time: "08:00 PM", stadium: "Dallas" },
-                { teams: "Belgium vs Iran", group: "Group Stage", time: "10:00 PM", stadium: "Los Angeles" }
-            ],
-            23: [
-                { teams: "Portugal vs Uzbekistan", group: "Group Stage", time: "08:00 PM", stadium: "Houston" },
-                { teams: "England vs Ghana", group: "Group Stage", time: "11:00 PM", stadium: "Boston" }
-            ],
-            24: [
-                { teams: "Bosnia and Herzegovina vs Qatar", group: "Group Stage", time: "10:00 PM", stadium: "Seattle" }
-            ],
-            25: [
-                { teams: "Ecuador vs Germany", group: "Group Stage", time: "11:00 PM", stadium: "New Jersey" }
-            ],
-            26: [
-                { teams: "Senegal vs Iraq", group: "Group Stage", time: "10:00 PM", stadium: "Toronto" }
-            ],
-            27: [
-                { teams: "Cape Verde vs Saudi Arabia", group: "Group Stage • National Spotlight", time: "03:00 AM", stadium: "Houston" }
-            ],
-            28: [
-                { teams: "South Africa vs Canada", group: "Round of 32", time: "10:00 PM", stadium: "Los Angeles" }
-            ],
-            29: [
-                { teams: "Brazil vs Japan", group: "Round of 32", time: "08:00 PM", stadium: "Houston" },
-                { teams: "Germany vs Paraguay", group: "Round of 32", time: "11:30 PM", stadium: "Boston" }
-            ],
-            30: [
-                { teams: "Ivory Coast vs Norway", group: "Round of 32", time: "08:00 PM", stadium: "Dallas" }
-            ],
             2: [
-                { teams: "Spain vs Austria", group: "Round of 32", time: "22:00 PM", stadium: "Los Angeles" }
+               { teams: "Spain vs Austria", group: "Round of 32", time: "22:00 PM", stadium: "Los Angeles" }
+            ],
+            3: [
+               { teams: "Australia vs Egypt", group: "Group Stage", time: "10:00 PM", stadium: "Seattle" }
+            ],
+            4: [
+               { teams: "Canada vs Morocco", group: "Round of 16", time: "08:00 PM", stadium: "Houston" }
+            ],
+            5: [
+               { teams: "Brazil vs Norway", group: "Round of 16", time: "11:00 PM", stadium: "New Jersey" }
+            ],
+            6: [
+               { teams: "W83 vs W84", group: "Round of 16", time: "10:00 PM", stadium: "Dallas" }
             ]
         };
 
         function renderMatches() {
             const today = new Date();
             const currentDayNumber = today.getDate(); 
-            const currentMonth = today.getMonth(); // 5 corresponds to June
+            const currentMonth = today.getMonth(); // 5 corresponds to July;
             
             const labelOptions = { weekday: 'long', month: 'long', day: 'numeric' };
             document.getElementById("live-date-title").innerText = today.toLocaleDateString('en-US', labelOptions);
@@ -437,7 +405,7 @@
             const matrix = document.getElementById("live-match-matrix");
             matrix.innerHTML = "";
 
-            // Ensures calculations are target-locked onto the June event window
+            // Ensures calculations are target-locked onto the July event window
             const todaysMatches = (currentMonth === 5) ? dailyScheduleDatabase[currentDayNumber] : null;
 
             if (todaysMatches && todaysMatches.length > 0) {
